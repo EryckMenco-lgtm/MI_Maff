@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para ti, Maria Fernanda Florez...</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="carta.css">
+    <script src="carta.js" defer></script>
+</head>
+<body>
+
+    <div class="bg"></div>
+    <div class="petalos" id="petalos"></div>
+
+    <!-- ENTRADA -->
+    <section class="entrada" id="entrada">
+        <span class="flor">🌻</span>
+        <p class="girasoles">🌻 🌻 🌻 🌻 🌻</p>
+        <p class="entrada-texto">Necesito decirte algo.</p>
+        <p class="entrada-sub">Cuando quieras.</p>
+        <button class="btn-abrir" id="btnAbrir">Abrir la carta</button>
+    </section>
+
+    <!-- CARTA -->
+    <main class="carta" id="carta" hidden>
+
+        <section class="bloque">
+            <p class="saludo">Maff, mi Ela:</p>
+            <p>No te escribo para pedirte nada. Te escribo porque hay algo que tengo que decirte, y quiero que todo lo que diga sea verdad.</p>
+            <p>Cuando empezaron a pasar cosas que yo no sabía cargar, en vez de contarte, me encerré. Pensé que te protegía de mi peso. Pero lo que hice fue alejarte de mi vida y dejarte sola con un dolor que no era tuyo. Fue un error, y lo reconozco sin excusas.</p>
+            <p class="destacado">Herí lo que más cuidabas: tu corazón. Y con él se fue parte de lo que construimos en estos dos años.</p>
+        </section>
+
+        <p class="girasoles revelar">🌻 🌼 🌻 🌼 🌻</p>
+
+        <figure class="foto foto-1 revelar">
+            <img src="img/foto-1.jpg" alt="Maff en el pasto, de noche">
+        </figure>
+
+        <section class="bloque">
+            <p>Me acuerdo de cada cosa: <span class="recuerdo">la playa, nuestras salidas en la moto, las comidas, la noche de tu grado en Zamba</span>. Eran días en los que yo era feliz contigo, y sé que tú también lo fuiste. Por eso duele tanto.</p>
+            <p>Te pido perdón. Perdón por el silencio, por la distancia, por hacerte sentir que no eras importante cuando eras lo más importante que tenía.</p>
+        </section>
+
+        <p class="girasoles revelar">🌻 🌻 🌻 🌻 🌻</p>
+
+        <section class="bloque cancion revelar">
+            <p class="cancion-texto">Hay una canción que se queda en el pecho cuando pienso en nosotros.</p>
+            <a class="btn-cancion" href="https://music.youtube.com/search?q=%C3%81mame+El+Gran+Combo" target="_blank" rel="noopener">Escúchala en YouTube Music 🎶</a>
+        </section>
+
+        <section class="bloque">
+            <p>Sé que el daño es grande y que no se borra con palabras. Así que no te pido que confíes en mí hoy.</p>
+            <p>Lo que sí te digo es esto: no te prometo nada que no pueda cumplir. Solo te prometo sanar contigo. Cada dolor, cada herida, con paciencia y con mucho amor, a tu ritmo y a medida que el tiempo lo permita.</p>
+        </section>
+
+        <figure class="foto foto-2 revelar" data-sanar>
+            <img src="img/foto-2.jpg" alt="Maff con una flor roja de hibisco en el pelo">
+        </figure>
+
+        <section class="bloque">
+            <p class="destacado">Ela, sigues siendo el amor de mi vida.</p>
+        </section>
+
+        <p class="girasoles revelar">🌼 🌻 🌼 🌻 🌼 🌻 🌼</p>
+
+        <figure class="foto foto-3 revelar">
+            <img src="img/foto-3.jpg" alt="Maff con una flor de plumeria en el pelo">
+        </figure>
+
+        <section class="bloque cierre">
+            <p>No tienes que responderme nada hoy. Si necesitas tiempo, te lo doy. Si decides que no, lo voy a respetar, aunque me duela.</p>
+
+            <div class="respuesta" id="respuesta">
+                <button class="btn-si" id="btnSi">Quiero sanarlo 💕</button>
+                <button class="btn-no" id="btnNo">No</button>
+            </div>
+            <p class="mensaje-final" id="mensajeFinal" aria-live="polite"></p>
+
+            <p class="firma">Con todo mi corazón,<br><span>Eryck Menco</span></p>
+        </section>
+
+    </main>
+
+    <div class="contador" id="contador" aria-live="polite"></div>
+
+</body>
+</html>

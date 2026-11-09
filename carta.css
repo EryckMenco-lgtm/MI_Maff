@@ -1,0 +1,297 @@
+:root {
+    --fondo: #120a1c;
+    --texto: #f3e6dc;
+    --suave: #c9b3c4;
+    --acento: #e8a0a8;
+    --oro: #e7c48a;
+    --sombra: rgba(0, 0, 0, .45);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+[hidden] { display: none !important; }
+
+html {
+    min-height: 100%;
+    background: var(--fondo);
+}
+
+body {
+    min-height: 100%;
+    background: transparent;
+    color: var(--texto);
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    line-height: 1.75;
+    overflow-x: hidden;
+}
+
+body { -webkit-tap-highlight-color: transparent; }
+
+.bg {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background:
+        radial-gradient(ellipse at 50% 0%, #4a1c48 0%, transparent 60%),
+        linear-gradient(180deg, #1e0c2e 0%, #120a1c 60%, #0b0612 100%);
+}
+
+/* ── Pétalos que caen ── */
+.petalos {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+.petalo {
+    position: absolute;
+    top: -40px;
+    font-size: 18px;
+    opacity: .55;
+    animation: caer linear infinite;
+}
+@keyframes caer {
+    0%   { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(110vh) rotate(360deg); }
+}
+
+/* ── Entrada ── */
+.entrada {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 16px;
+    text-align: center;
+    transition: opacity .8s ease, transform .8s ease;
+}
+.entrada.salir {
+    opacity: 0;
+    transform: translateY(-16px);
+    pointer-events: none;
+}
+.flor { font-size: 42px; }
+.entrada-texto {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 26px;
+    color: var(--texto);
+}
+.entrada-sub { color: var(--suave); }
+
+/* ── Girasoles de adorno ── */
+.girasoles {
+    text-align: center;
+    font-size: 26px;
+    letter-spacing: 8px;
+    margin: 36px 0;
+    opacity: .85;
+}
+.entrada .girasoles {
+    margin: 0;
+    font-size: 22px;
+}
+
+/* ── Botones ── */
+button {
+    font-family: 'Lato', sans-serif;
+    cursor: pointer;
+    border: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+.btn-abrir,
+.btn-si,
+.btn-cancion {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 14px 28px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #b8556a, #e8a0a8);
+    color: #2a0f1e;
+    font-size: 16px;
+    font-weight: 400;
+    text-decoration: none;
+    box-shadow: 0 10px 30px var(--sombra);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+.btn-abrir:active,
+.btn-si:active,
+.btn-cancion:active { transform: scale(.97); }
+
+.btn-cancion {
+    background: transparent;
+    color: var(--oro);
+    border: 1px solid var(--oro);
+    box-shadow: none;
+}
+
+.btn-no {
+    position: relative;
+    margin-top: 10px;
+    padding: 14px 28px;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--suave);
+    border: 1px solid rgba(201, 179, 196, .4);
+    font-size: 16px;
+    transition: transform .3s ease, left .3s ease, top .3s ease;
+}
+.btn-no.fijo {
+    position: fixed;
+    z-index: 50;
+    margin: 0;
+}
+
+/* ── Carta ── */
+.carta {
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 56px 16px 120px;
+    animation: aparecer 1s ease both;
+}
+.carta[hidden] { display: none; }
+@keyframes aparecer {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.bloque {
+    margin-bottom: 40px;
+    font-size: 18px;
+}
+.bloque p + p { margin-top: 18px; }
+
+.saludo {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 26px;
+    color: var(--oro);
+    margin-bottom: 22px !important;
+}
+
+.destacado {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 21px;
+    color: var(--acento);
+}
+
+.recuerdo {
+    color: var(--oro);
+    font-style: italic;
+}
+
+.cancion {
+    text-align: center;
+}
+.cancion-texto {
+    font-style: italic;
+    color: var(--suave);
+    margin-bottom: 18px !important;
+}
+
+.cierre { text-align: center; }
+
+.firma {
+    margin-top: 40px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--suave);
+}
+.firma span {
+    display: inline-block;
+    margin-top: 6px;
+    color: var(--oro);
+    font-size: 20px;
+}
+
+/* ── Respuesta ── */
+.respuesta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 28px;
+}
+.mensaje-final {
+    margin-top: 22px;
+    min-height: 1.75em;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--oro);
+    transition: opacity .6s ease;
+}
+
+.contador {
+    position: fixed;
+    bottom: 16px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 14px;
+    color: var(--suave);
+    opacity: 0;
+    transition: opacity .4s ease;
+    pointer-events: none;
+}
+.contador.visible { opacity: 1; }
+
+/* ── Fotos ── */
+.foto {
+    margin: 40px auto;
+    max-width: 100%;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 18px 40px var(--sombra);
+    border: 6px solid rgba(243, 230, 220, .08);
+}
+.foto img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.foto-1 { max-width: 320px; transform: rotate(-1.5deg); }
+.foto-2 { max-width: 380px; transform: rotate(1.2deg); }
+.foto-3 { max-width: 100%; }
+
+/* Sanar: la foto empieza borrosa y se aclara */
+.foto-2 img {
+    filter: blur(14px) saturate(.6);
+    transition: filter 2.4s ease;
+}
+.foto-2.sanada img {
+    filter: blur(0) saturate(1);
+}
+
+/* Revelar al bajar */
+.revelar {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+.revelar.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.foto-1.revelar.visible { transform: translateY(0) rotate(-1.5deg); }
+.foto-2.revelar.visible { transform: translateY(0) rotate(1.2deg); }
+
+@media (prefers-reduced-motion: reduce) {
+    .petalo { animation: none; display: none; }
+    .revelar, .foto-2 img, .carta { transition: none; animation: none; }
+    .revelar { opacity: 1; transform: none; }
+    .foto-2 img { filter: none; }
+}
+
+/* ── Móvil ── */
+@media (max-width: 480px) {
+    .bloque { font-size: 17px; }
+    .destacado { font-size: 19px; }
+    .carta { padding: 40px 16px 120px; }
+}

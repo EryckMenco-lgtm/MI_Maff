@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#120a1c">
+    <title>Para mi reina, Maria Fernanda 👑</title>
+    <!-- Vista previa al mandar el link por WhatsApp.
+         og:image debe ser la dirección COMPLETA cuando la página ya esté publicada,
+         por ejemplo: https://tu-pagina.netlify.app/img/album/reina-p.jpg -->
+    <meta property="og:title" content="Para mi reina 👑">
+    <meta property="og:description" content="Toca mi corazón 💖">
+    <meta property="og:image" content="img/album/reina-p.jpg">
+    <link rel="preload" as="image" href="img/album/reina.jpg">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌻</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Caveat:wght@500;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="recuerdos.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <div class="bg"></div>
+    <div class="lluvia" id="lluvia" aria-hidden="true"></div>
+    <div class="chispas" id="chispas" aria-hidden="true"></div>
+
+    <!-- ── PORTADA: ella en el trono ── -->
+    <section class="portada" id="portada" data-rostro="rostro-portada">
+        <img class="portada-foto" src="img/album/reina.jpg" alt="Maff como reina en un trono dorado" fetchpriority="high">
+        <div class="portada-velo" aria-hidden="true"></div>
+        <div class="portada-brillos" id="portadaBrillos" aria-hidden="true"></div>
+
+        <div class="portada-contenido">
+            <p class="portada-para">Para mi reina,</p>
+            <h1 class="portada-titulo">mi viejita</h1>
+            <div class="nombre" id="nombre" aria-label="Maria Fernanda Florez"></div>
+
+            <button class="corazon" id="btnCorazon" aria-label="Abrir el álbum">
+                <span class="corazon-icono">💖</span>
+            </button>
+            <p class="portada-pista">Toca mi corazón</p>
+        </div>
+    </section>
+
+    <main class="album" id="album" hidden>
+
+        <!-- ── LA CARTA SELLADA (primera foto) ── -->
+        <section class="seccion seccion-sobre">
+            <p class="eyebrow">Antes que nada</p>
+            <h2 class="titulo">Esto es para ti</h2>
+
+            <div class="sobre" id="sobre">
+                <img class="sobre-foto" id="sobreFoto" alt="Nota escrita a mano: Te amo, M&E">
+                <div class="tapa tapa-sup"></div>
+                <div class="tapa tapa-inf"></div>
+                <button class="sello" id="btnSello" aria-label="Abrir la carta">💌</button>
+            </div>
+            <p class="pista" id="pistaSobre">Toca el sello</p>
+            <p class="sobre-mensaje" id="sobreMensaje"></p>
+        </section>
+
+        <!-- ── LO QUE QUIERO QUE SEPAS ── -->
+        <section class="seccion seccion-frases" id="frases">
+            <p class="eyebrow">Lo que quiero que sepas</p>
+        </section>
+
+        <!-- ── DESDE QUE EMPEZAMOS (se activa con INICIO en recuerdos.js) ── -->
+        <section class="seccion seccion-dias" id="dias" hidden>
+            <p class="eyebrow">Desde que empezamos</p>
+            <h2 class="titulo">Te quiero desde hace</h2>
+            <p class="dias-grande"><span id="diasNum">0</span> <small>días</small></p>
+            <div class="dias-reloj">
+                <div class="dias-unidad"><span id="horasNum">00</span><small>horas</small></div>
+                <div class="dias-unidad"><span id="minNum">00</span><small>minutos</small></div>
+                <div class="dias-unidad"><span id="segNum">00</span><small>segundos</small></div>
+            </div>
+            <p class="pista" id="diasDesde"></p>
+        </section>
+
+        <!-- ── LA PROTAGONISTA: su retrato fijo y las frases pasan encima ── -->
+        <section class="interludio" aria-label="Mi reina" data-rostro="rostro-interludio">
+            <div class="interludio-fondo">
+                <img src="img/album/reina.jpg" alt="Maff como reina en un trono dorado" loading="lazy">
+            </div>
+            <div class="interludio-textos">
+                <p class="interludio-frase revelar">Toda esta historia tiene una sola protagonista…</p>
+                <p class="interludio-frase revelar">La dueña de mi corazón.</p>
+                <p class="interludio-frase interludio-grande revelar">Mi reina 👑</p>
+                <p class="interludio-frase interludio-nombre revelar">Maria Fernanda Florez<small>mi viejita, mi Ela, mi Maff</small></p>
+            </div>
+        </section>
+
+        <!-- ── EL ÁLBUM ── -->
+        <section class="seccion seccion-album">
+            <p class="eyebrow">Nuestro álbum</p>
+            <h2 class="titulo">Cada foto tiene algo<br>que decirte</h2>
+            <p class="pista">Toca cada foto para voltearla</p>
+            <button class="btn btn-pelicula" data-pelicula>Ver nuestra película 🎬</button>
+            <div id="capitulos"></div>
+        </section>
+
+        <!-- ── EL FRASCO ── -->
+        <section class="seccion seccion-frasco">
+            <p class="eyebrow">Un frasco lleno de razones</p>
+            <h2 class="titulo">¿Por qué te amo?</h2>
+            <button class="frasco" id="btnFrasco" aria-label="Sacar una razón del frasco">
+                <span class="frasco-tapa"></span>
+                <span class="frasco-cuerpo">
+                    <span class="frasco-corazones">💗💛💖<br>💕🌻💘<br>💗💖💛</span>
+                </span>
+            </button>
+            <p class="pista">Tócalo las veces que quieras</p>
+            <div class="nota-frasco" id="notaFrasco" aria-live="polite"></div>
+        </section>
+
+        <!-- ── VALES DE AMOR ── -->
+        <section class="seccion seccion-vales">
+            <p class="eyebrow">Vales de amor</p>
+            <h2 class="titulo">Para cuando tú quieras</h2>
+            <p class="pista">Toca el que quieras cobrar, hazle captura y mándamela 📸</p>
+            <div class="vales" id="vales"></div>
+        </section>
+
+        <!-- ── FINAL: MI REINA ── -->
+        <section class="seccion seccion-final" id="final">
+            <span class="corona" aria-hidden="true">👑</span>
+            <h2 class="titulo titulo-final">Mi reina</h2>
+            <figure class="retrato retrato-reina revelar">
+                <img id="reinaFoto" alt="Maff como reina en un trono dorado" loading="lazy">
+            </figure>
+            <p class="final-mensaje revelar" id="reinaMensaje"></p>
+
+            <p class="eyebrow final-puente revelar">Y yo, tu rey, siempre a tu lado</p>
+            <figure class="retrato retrato-pareja revelar">
+                <img id="retratoFoto" alt="Los dos como rey y reina en un trono" loading="lazy">
+            </figure>
+            <p class="final-mensaje revelar" id="finalMensaje"></p>
+
+            <p class="pregunta revelar">¿Vamos de a poco,<br>mi viejita?</p>
+            <div class="respuesta" id="respuesta">
+                <button class="btn btn-si" id="btnSi">Sí, de a poco 💕</button>
+                <button class="btn btn-no" id="btnNo">No</button>
+            </div>
+            <p class="final-respuesta" id="finalRespuesta" aria-live="polite"></p>
+
+            <button class="btn btn-pelicula btn-secundario" data-pelicula>Ver nuestra película otra vez 🎬</button>
+            <a class="enlace-carta" href="carta.html">💌 Volver a leer mi carta</a>
+            <p class="firma">Con todo mi amor,<br><span>tu viejito, Eryck</span></p>
+        </section>
+    </main>
+
+    <!-- ── BOTONES FLOTANTES ── -->
+    <a class="flotante flotante-musica" id="btnMusica" target="_blank" rel="noopener" hidden>🎶 <span>Nuestra canción</span></a>
+    <div class="flotante flotante-contador" id="contador" hidden>💌 <span id="contadorNum">0</span></div>
+    <div class="aviso-no" id="avisoNo" aria-live="polite"></div>
+
+    <!-- ── LA PELÍCULA ── -->
+    <div class="pelicula" id="pelicula" hidden role="dialog" aria-modal="true" aria-label="Nuestra película">
+        <div class="pelicula-fondo" id="peliFondo"></div>
+        <div class="pelicula-barra"><div class="pelicula-progreso" id="peliProgreso"></div></div>
+        <p class="pelicula-cuenta" id="peliCuenta"></p>
+        <button class="pelicula-cerrar" id="peliCerrar" aria-label="Cerrar">✕</button>
+        <div class="pelicula-marco">
+            <img class="pelicula-foto" id="peliFoto" alt="">
+        </div>
+        <div class="pelicula-texto">
+            <p class="pelicula-nota" id="peliNota"></p>
+            <p class="pelicula-mensaje" id="peliMensaje"></p>
+        </div>
+        <button class="pelicula-zona pelicula-atras" id="peliAtras" aria-label="Foto anterior"></button>
+        <button class="pelicula-zona pelicula-adelante" id="peliAdelante" aria-label="Foto siguiente"></button>
+        <button class="pelicula-pausa" id="peliPausa" aria-label="Pausar">❚❚</button>
+
+        <!-- Créditos de entrada: ella es la protagonista -->
+        <button class="pelicula-creditos" id="peliCreditos" hidden aria-label="Empezar la película">
+            <span class="creditos-chico">Una historia protagonizada por</span>
+            <span class="creditos-nombre">Maria Fernanda Florez</span>
+            <span class="creditos-chico">👑 mi reina 👑</span>
+        </button>
+    </div>
+
+    <!-- ── CELEBRACIÓN ── -->
+    <div class="celebracion" id="celebracion" hidden>
+        <div class="celebracion-tarjeta">
+            <div class="medallon" aria-hidden="true">
+                <span class="medallon-corona">👑</span>
+                <img src="img/album/reina-medallon.jpg" alt="">
+            </div>
+            <p class="celebracion-titulo" id="celebracionTitulo"></p>
+            <p class="celebracion-texto" id="celebracionTexto"></p>
+            <button class="btn" id="celebracionCerrar">💕</button>
+        </div>
+    </div>
+
+</body>
+</html>
