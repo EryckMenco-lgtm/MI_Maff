@@ -1,7 +1,6 @@
 // Los textos y la lista de fotos están en recuerdos.js
 
 const grande = (foto) => `img/album/${foto}.jpg`;
-const pequena = (foto) => `img/album/${foto}-p.jpg`;
 const azar = (min, max) => min + Math.random() * (max - min);
 const alAzar = (lista) => lista[Math.floor(Math.random() * lista.length)];
 const sinMovimiento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -218,7 +217,7 @@ function crearPolaroid(item, indice, posicion) {
     poli.innerHTML = `
         <div class="poli-interior">
             <div class="cara">
-                <img src="${pequena(item.foto)}" alt="" loading="lazy" decoding="async">
+                <img src="${grande(item.foto)}" alt="" loading="lazy" decoding="async">
                 <p class="cara-nota"></p>
             </div>
             <div class="dorso">
@@ -498,7 +497,7 @@ function mostrarFoto(i) {
     };
     peliFoto.src = grande(item.foto);
     peliFoto.alt = item.nota;
-    peliFondo.style.backgroundImage = `url("${pequena(item.foto)}")`;
+    peliFondo.style.backgroundImage = `url("${grande(item.foto)}")`;
 
     document.getElementById('peliNota').textContent = item.nota;
     document.getElementById('peliMensaje').textContent = item.mensaje;

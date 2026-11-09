@@ -43,7 +43,6 @@ const CAPITULOS = [
             { foto: 'm25', nota: 'Feliz así', mensaje: 'Quiero volver a verte reír así, sin pensarlo. Y quiero ser yo el motivo.' },
             { foto: 'm33', nota: 'Mi payasita ✌️', mensaje: 'Contigo hasta lo más simple se volvía bonito.' },
             { foto: 'm35', nota: 'Tan tú 💚', mensaje: 'Sin filtros y sin poses. Así, tal cual, eres la más linda.' },
-            { foto: 'm53', nota: 'Sonrisita 💚', mensaje: 'Esa sonrisa tímida me la sé de memoria.' },
             { foto: 'm14', nota: 'Mi viejita 💕', mensaje: 'Quiero que te acuerdes de cuando eras mi viejita, porque yo sigo siendo tu viejito.' },
             { foto: 'm37', nota: 'Navidad 🎄', mensaje: 'De todos los regalos, mi favorito siempre fuiste tú.' },
         ],
